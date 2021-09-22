@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    background-image: url("car-bg.jpeg");
+    color: white;
+    min-height: calc(100vh - 100px);
+    flex-direction: column;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: flex-start;
+}
+
+.container {
+    padding: 0 1rem;
+    width: 1000px;
+    max-width: 100%; 
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+nav .logo {
+    font-size: 2.5rem;
+}
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+nav li a {
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.selected {
+    font-weight: bold;
+}
+.highlight {
+    background-color: #00c2ff;
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.content {
+    margin: auto;
+    font-size: 1.5rem;
+    max-width: 100%;
+}
+
+.content h1 {
+    color: #00c2ff;
+    margin-bottom: 0;
+
+}
+
+footer {
+    height: 100px;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+}
+
+footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
+
+footer strong {
+    color: #00c2ff
+
+}
+
+footer p {
+    margin: 0;
+}
+
+@media screen and (max-width: 700px) {
+    .content {
+        margin: 2rem auto 0;
+        font-size: 1.5rem;
+    }
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav .highlight {
+        display: none;
+    }
+
+    nav li:not(:last-child){
+        margin-bottom: 1rem;
+    }
+    footer {
+        height: 100%;
+    }
+
+    footer ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    footer li {
+        margin: 1rem;
+        text-align: center;
+    }
+}
+
+
+/* class AgentMonitoringViewSet(viewsets.GenericViewSet):
+    @classmethod
+    @method_decorator(permission_verification(User.USER_ROLE[2:3]))
+    def get_qa_associated_agents(cls, request):
+        data = request.query_params
+        page_number = data.get('page', 1)
+        qa_team = request.user.team_id
+        qa_projects_queryset = models.Project.objects.filter(delete_status=False, team_id=qa_team)
+
+        qa_project_paths_queryset = None
+
+        if not qa_projects_queryset:
+            return Response({"msg": "You are not supervising any agent yet"})
+
+        for qs in qa_projects_queryset:
+            if qa_project_paths_queryset == None:
+                qa_project_paths_queryset = qs.paths()
+            else:
+                qa_project_paths_queryset = qa_project_paths_queryset | qs.paths()
+
+        paths_serializer= serializers.AssociatedPathsSerializer(instance=qa_project_paths_queryset, many=True)
+
+        result = {}
+
+        temp_data = sorted(paths_serializer.data, key=lambda x: (x["agent_user_name"], x["agent_last_login"]))
+
+        for key, value in itertools.groupby(temp_data, key=lambda x: (x["agent_user_name"], x["agent_last_login"])):
+            result[key[0]] = list(value)
+
+        final_result = []
+
+        for key in result:
+            if key != "":
+                entry = {}
+                c = Counter()
+                for path in result[key]:
+                    c[path["recording_status"]] += 1
+
+                entry["Path"] = len(result[key])
+                entry["Completed"] = c.get("Complete", 0)
+                entry["Faulty"] = c.get("Faulty", 0)
+                entry["Last Login"] = result[key][0]["agent_last_login"]
+                entry["name"] = key
+
+                final_result.append(entry)
+        
+        paginator = Paginator(final_result, 10)
+
+        try:
+            page_response = paginator.page(page_number).object_list
+        except EmptyPage:
+            return Response({"msg": "Invalid page number provided"}, status=status.HTTP_404_NOT_FOUND)
+
+        response = {
+            "count": paginator.count,
+            "number_of_pages": paginator.num_pages,
+            "page_result": page_response,
+        }
+
+        return Response(response) */
+
+
