@@ -1,0 +1,92 @@
+@import 'colors';
+@import 'media-queries';
+
+%align-center {
+    display: flex;
+    align-items: center;
+}
+.navbar {
+    background-color: $light;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    z-index: 10;
+    position: relative;
+
+    &_logo {
+        font-size: 2rem;
+        font-weight: bolder;
+        color: $black;
+        cursor: pointer;
+        text-decoration: none;
+        @extend %align-center;
+        
+    }
+
+    &_bars {
+        opacity: 0;
+
+        @include tablet {
+             color: $black;
+             opacity: 1;
+             position: absolute;
+             top: 22px;
+             right: 20px;
+             font-size: 2rem;
+        }
+    }
+
+    &_menu {
+        @extend %align-center;
+        list-style: none;
+        text-align: center;
+        margin-right: 24px;
+
+        @include tablet {
+            display: none;
+        }
+
+        &_links {
+            color: $black;
+            @extend %align-center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 0 1rem;
+
+            &:hover {
+                color: $green;
+                transition: all 0.3s ease;
+            }
+
+        }
+
+        #button {
+            padding: 12px 24px;
+            border: none;
+            outline: none;
+            border-radius: 4px;
+            background: $green;
+            margin-left: 16px;
+            color: $light;
+
+            &:hover {
+                background: $orangeRed;
+                transition: all 0.3s ease;
+
+            }
+        }
+    }
+
+     .navbar_logo i {
+        color: $green;
+    }
+
+
+
+}
+
+ .span_style {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 600;
+}

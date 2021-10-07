@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import 'navbar';
+
+* {
+    font-family: Poppins, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Hero Section
+
+.hero {
+    background-color: $light;
+
+    &_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        align-items: center;
+        justify-items: center;
+        margin: 0 auto;
+        height: 90vh;
+        width: 100%;
+        z-index: 1;
+        max-width: 1200px;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            height: 100%;
+        }
+
+        &_left {
+            width: 100%;
+            line-height: 1.2;
+
+            @include tablet {
+                padding: 5rem 0;
+            }
+
+            @include mobile {
+                line-height: 1.5;
+            }
+        }
+        &_left h1 {
+            font-size: 4rem;
+            color: $yellow;
+
+            @include tablet {
+                font-size: 2.5rem;
+            }
+        }
+
+        &_left h2 {
+            font-size: 2rem;
+            color: $black;
+
+            @include tablet {
+                font-size: 2rem;
+            }
+        }
+
+        &_left p {
+            font-size: 1.5rem;
+            color: $black;
+            margin-top: 1rem;
+
+            @include tablet {
+                font-size: 1.2rem;
+            }
+        }
+
+        &_btn {
+            font-size: 1rem;
+            background-color: $green;
+            padding: 14px 28px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+            color: $light;
+            text-decoration: none;
+            position: relative;
+            transition: all 0.3s;
+
+        }
+
+        &_btn a {
+            position: relative;
+            color: $light;
+            text-decoration: none;
+            z-index: 2;
+        }
+
+        &_btn:after {
+           position: absolute;
+           content: ''; 
+           top: 0;
+           left: 0;
+           width: 0;
+           height: 100%;
+           background: $orangeRed ;
+           transition: all 0.3s;
+           border-radius: 4px ;
+        }
+
+        &_btn:hover:after {
+            width: 100%;
+        }
+
+        &_right {
+            text-align: center;
+        }
+
+        &_img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
